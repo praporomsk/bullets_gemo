@@ -1,17 +1,12 @@
 # Bullets demo
 
-Чтобы сделать выстрел пулей нужно:
-- Зажать левую клавишу мыши
-- Потянуть в нужное направление
-- Отпустить
+This is a task to check multithreading and c++ skills 
 
-Скорость пули зависит насколько далеко отдавим курсор
-Время старта зависит насколько долго держим зажатую левую клавишу мыши
-Время жизни пули 4 секунды.
+A list of segments (walls), represented by two points on a plane, is predefined. 
+Your task is to write BulletManager class, consisting of two public methods:
 
-количество стен можно задавать в
-``` 
-void GameLayer::createWalls()
-{
-    for (int i = 0; i < 2000; ++i) {
-```
+ • void Update (float time), where time – global update time in seconds. This method calculates bullet movement in given time, and in case of collision with the wall, removes the wall from the list and bullet continues movement with its trajectory reflected.
+
+ • void Fire (float2 pos, float2 dir, float speed, float time, float life_time), where pos – starting point of the bullet on the plane (in meters), dir – direction, speed – bullet speed (m/s), time – when the bullet will be fired, life_time – time before bullet disappears. This method adds bullet to manager for further updates. Update method must be called from main thread, but Fire method could be called from different threads.
+
+<img src="https://github.com/rvsemenov/bullets_gemo/raw/master/demo.gif" width=1000> ->
